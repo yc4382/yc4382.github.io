@@ -1,0 +1,14 @@
+---
+title: "My awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Welcome to my website
+My name is YUQI CHENG. I am a first year graduate student in Columbia University with Biostats as my field of study. I am looking forward to pursue a data science based future career after I greaduating from here.
+
+- [GitHub Page](https://github.com/yc4382)
+- [Email](yc4382@cumc.columbia.edu)
+

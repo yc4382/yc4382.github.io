@@ -1,0 +1,78 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(dplyr)
+
+data("instacart")
+```
+
+```{r}
+instacart <- instacart %>%
+  select(-product_id, -user_id, -eval_set, -days_since_prior_order,
+         -aisle_id,-department_id, -reordered) %>%
+  sample_n(7500)
+```
+
+Column {data-width=600}
+-----------------------------------------------------------------------
+
+### Hour and day of Aisle items sold
+
+```{r}
+library(plotly)
+library(dplyr)
+
+df <- instacart   
+
+#change day_names 
+day_names <- c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+df$order_dow <- factor(df$order_dow, levels = 0:6, labels = day_names)
+
+# Plot
+df |>
+  mutate(text_label = str_c("Aisle", aisle, "Order Hour of Day: ", order_hour_of_day)) |> 
+  plot_ly(
+    x = ~order_hour_of_day, y = ~aisle, type = "scatter", mode = "markers",
+    color = ~order_dow, text = ~text_label, alpha = 0.5) |>
+  layout(
+  xaxis = list(title = "Aisle"),
+  yaxis = list(title = "Order hour"))
+
+```
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Number of orders in each department
+
+```{r}
+df |> 
+  count(department) |> 
+  mutate(department = fct_reorder(department, n)) |> 
+  plot_ly(x = ~department, y = ~n, color = ~department, type = "bar", colors = "viridis") |>
+  layout(
+  xaxis = list(title = "Department"), font = list(size = 8),
+  yaxis = list(title = "Number of orders"),font = list(size = 8))
+```
+
+### Orders sequence number in each department
+
+```{r}
+df |> 
+  mutate(department = fct_reorder(department, order_number)) |> 
+  plot_ly(y = ~order_number, color = ~department, type = "box", colors = "viridis") |>
+  layout(
+  xaxis = list(title = "Department"), font = list(size = 8),
+  yaxis = list(title = "Order sequence"),font = list(size = 8))
+```
+

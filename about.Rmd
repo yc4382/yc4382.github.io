@@ -1,0 +1,46 @@
+---
+title: "About me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+### EDUCATION
+
+University of California, Irvine (Bachelor's)
+
+•	Major: Mathematics 
+
+•	GPA: 3.507/4.000 
+
+Columbia University	- (Master's)
+
+### PROFESSIONAL EXPERIENCE
+
+#### Actuary 							          
+
+Shanghai Redstone Intelligent Technology Co., Ltd.        
+
+•	Collected insurance products and installed databases from mobile software
+
+•	Organized insurance product evaluation templates 
+
+•	Used insurance knowledge to help the team build an actuarial product library and participated in the promotion of insurance structure, benefits and policies
+
+•	Participated in data collection and analysis, and explored the formulation and implementation of community plans
+
+•	Assisted colleagues in disassembling insurance products and importing them into various company systems
+
+#### Quantitative Financial Analysis Assistant 				             
+
+J.P. Morgan Chase & Co 
+
+•	Learned and applied American and European option pricing theories to comprehensive financial analysis
+
+•	Used American Monte Carlo methods to solve American option pricing problems
+
+
+
+
+
